@@ -1,0 +1,59 @@
+# Given an integer n, return the number of prime numbers that are strictly less than n.
+
+#input variable [x] between 1 ~ 10000
+#input numbers
+def input_number():
+    number=int(input("Enter a number between 1 and 10000:"))
+    print("You entered:",number)
+    return number
+
+#check the number is a prime number or not
+def check_is_prime():
+    n = number
+    pass
+
+#check if the primes between 2-number, return a list
+def Find_Primes(number):
+#prime between 2 - number
+    n=int(number)
+    all_primes = []
+    for i in range(2,n+1):
+        for j in range(2,int(i**0.5)+1):
+            if i%j ==0:
+                break
+        else:
+            all_primes.append(i)
+    return all_primes
+
+#find the prime numbers in the list
+def Count_Prime(all_primes): #1mMethod檢查Prime: 在1-(number-1)之間可以整除 number的數值
+    prime_list=[]
+    primes = all_primes
+    input_range = input_number()
+    flag = True
+    for prime in all_primes:
+        if input_range % prime ==0:
+            flag = False
+        else:
+            flag = True
+    if flag ==True:
+        prime_list.append(prime)
+    return prime_list
+
+    #Prime numbers are called out
+def Print_Prime(prime_list,number):
+    if len(prime_list) !=0:
+        print("There are ",len(prime_list), "numbers:", prime_list)
+    #elif number ==1:
+    #    print("1 is not a Prime Number.")
+    else:
+        print(input_number(), "is a Prime number.")
+
+#呼叫失敗--無法把parameter 輸入到函數做計算
+#NOTE:FUNCTION有()才能執行，印出PRINT寫法加強。
+\
+
+number = input_number()
+list = Find_Primes(number)
+#print(len(list),list)
+print(f"In total, there are ",len(list)," prime numbers:",list)
